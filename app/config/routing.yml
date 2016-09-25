@@ -1,0 +1,5 @@
+fallback:
+    pattern: /{url}
+    defaults: { _controller: AppBundle:Default:index, url: null }
+    requirements:
+        url: .*
