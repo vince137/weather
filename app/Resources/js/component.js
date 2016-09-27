@@ -3,7 +3,7 @@ import React from 'react';
 var Component = React.createClass({
     render: function () {
         return (
-            <h1>Weather display</h1>
+            <h1>Weather Display</h1>
         );
     }
 });

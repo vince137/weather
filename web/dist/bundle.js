@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "18e739a7283ca87575c0"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "115a6cb4916e30d806b9"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -8350,7 +8350,6 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var ReactDOM = __webpack_require__(111);
-
 	ReactDOM.render(_react2.default.createElement(_component2.default, null), document.getElementById('app'));
 
 /***/ },
@@ -12359,19 +12358,18 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var Component = _react2.default.createClass({
-	    displayName: 'Component',
+	var HomeComponent = _react2.default.createClass({
+	    displayName: 'HomeComponent',
 
 	    render: function render() {
 	        return _react2.default.createElement(
 	            'h1',
 	            null,
-	            'Weather display'
+	            'Display'
 	        );
 	    }
 	});
-
-	exports.default = Component;
+	exports.default = HomeComponent;
 
 /***/ },
 /* 111 */
