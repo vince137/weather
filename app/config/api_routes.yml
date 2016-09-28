@@ -1,0 +1,3 @@
+reports:
+    resource: ApiBundle\Controller\ReportRestController
+    type:     rest
