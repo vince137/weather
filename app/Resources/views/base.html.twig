@@ -3,11 +3,19 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %} Display {% endblock %}</title>
+        <link href="{{ asset('bundles/app/css/main.css') }}" rel="stylesheet" />
     </head>
     <body>
-        <div id="app"> </div>
+                <div id="navbar"> </div>
+
+        <div id="app">
+            <div id="content">
+                {% block body %}{%endblock%}
+            </div>
+        </div>
     </body>
 </html>
+
 {% block javascripts %}
     {% if app.environment == 'dev' %}
         <script src="{{ asset('dist/bundle.js') }}"></script>

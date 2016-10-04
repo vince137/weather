@@ -17,7 +17,6 @@ class DefaultController extends Controller
 
         //$dashboard = new Dashboard();
         //$dashboard->getValues();
-
         return $this->render('default/index.html.twig');
     }
 }
