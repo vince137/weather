@@ -19,7 +19,7 @@ class ReportRestController extends Controller
         $repository = $this->getDoctrine()->getManager()->getRepository('AppBundle:Report');
 
         // Get all reports
-        $reports = $repository->findAll();
+        $reports = $repository->findBy(array(), array('date' => 'DESC'), 30);
 
         return $reports;
     }
