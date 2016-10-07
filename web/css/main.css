@@ -1,0 +1,63 @@
+/* Global app */
+#app{
+    width:98%;
+    padding:0 1%;
+}
+
+/* Navbar */
+#navbar nav {
+    border-radius:0;
+}
+
+/* Dashboard */
+.dashboard{
+    width:100%;
+}
+.dashboard .panel{
+    float:left;
+    min-height:200px;
+}
+.dashboard .real_time{
+    position:relative;
+    width:45%;
+}
+.dashboard h2{
+    padding-top:0;
+    margin-top:0;
+    font-size:19px;
+}
+.dashboard .real_time .real_time_releve {
+    width:15%;
+    border:1px silver solid;
+    margin:0 10% 0 0;
+    padding:5px;
+    font-weight:bold;
+    font-size:24px;
+    display:inline-block;
+    text-align:center;
+}
+.dashboard .real_time .real_time_releve:hover {
+    background-color:#CCC;
+}
+
+.dashboard .real_time .real_time_releve .real_time_name{
+    font-size:11px;
+    clear:both;
+}
+.dashboard .real_time .last_update{
+    position:absolute;
+    bottom:0;
+    right:0;
+    padding:5px;
+    color:#75787a;
+    font-style: italic;
+    font-size:12px;
+    font-weight:bold;
+}
+.dashboard .list {
+    width:50%;
+    margin-left:5%;
+}
+.dashboard .list table td, .dashboard .list table th{
+    text-align:center;
+}
