@@ -59,8 +59,16 @@ class FilesCsvCommand extends ContainerAwareCommand
     protected function insertData($reportData) {
         if (isset($reportData["date"]) && !empty($reportData["date"])) {
             $dateParsed = \DateTime::createFromFormat('Y.m.d H:i',$reportData["date"]);
-            $report = new Report();
+
+            // Check if we have a record with this date
+            $em = $this->getContainer()->get('doctrine')->getEntityManager();
+            $report = $em->getRepository('AppBundle:Report')->findOneBy(array('date' => $dateParsed));
+            if ($report === null) {
+                $report = new Report();
+            }
+            
             $report->setDate($dateParsed);
+
             // Set the temperature
             if (isset($reportData["temperature"]) && $reportData["temperature"] !== null) {
                 $report->setTemperature($reportData["temperature"]);
@@ -70,7 +78,6 @@ class FilesCsvCommand extends ContainerAwareCommand
                 $report->setHumidity($reportData["humidity"]);
             }
 
-            $em = $this->getContainer()->get('doctrine')->getEntityManager();
             $em->persist($report);
             $em->flush(); 
         }
