@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "bbe5f4d9035644f6c485"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "b5045c886c3323aa583e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -24161,8 +24161,7 @@
 	  if (x === y) {
 	    // Steps 1-5, 7-10
 	    // Steps 6.b-6.e: +0 != -0
-	    // Added the nonzero y check to make Flow happy, but it is redundant
-	    return x !== 0 || y !== 0 || 1 / x === 1 / y;
+	    return x !== 0 || 1 / x === 1 / y;
 	  } else {
 	    // Step 6.a: NaN == NaN
 	    return x !== x && y !== y;
@@ -35258,7 +35257,7 @@
 	    getReports: function getReports() {
 	        var _this = this;
 
-	        return fetch('http://191.168.35.187/weather/web/app_dev.php/api/reports').then(function (response) {
+	        return fetch('http://localhost/weather/weather/web/app_dev.php/api/reports').then(function (response) {
 	            return response.json();
 	        }).then(function (responseJson) {
 	            // Update the component data
@@ -35311,12 +35310,14 @@
 	                _react2.default.createElement(
 	                    "td",
 	                    null,
-	                    reports[key].temperature
+	                    reports[key].temperature,
+	                    "°C"
 	                ),
 	                _react2.default.createElement(
 	                    "td",
 	                    null,
-	                    reports[key].humidity
+	                    reports[key].humidity,
+	                    "%"
 	                )
 	            );
 	        });
@@ -35335,18 +35336,18 @@
 	                _react2.default.createElement(
 	                    "h2",
 	                    null,
-	                    " Donn\xE9es en temps r\xE9el "
+	                    " Données en temps réel "
 	                ),
 	                _react2.default.createElement(
 	                    "div",
 	                    { className: "real_time_releve last_temperature" },
 	                    this.state.lastReport.temperature,
-	                    "\xB0C ",
+	                    "°C ",
 	                    _react2.default.createElement("br", null),
 	                    _react2.default.createElement(
 	                        "span",
 	                        { className: "real_time_name" },
-	                        " Temp\xE9rature "
+	                        " Température "
 	                    )
 	                ),
 	                _react2.default.createElement(
@@ -35358,13 +35359,13 @@
 	                    _react2.default.createElement(
 	                        "span",
 	                        { className: "real_time_name" },
-	                        " Humidit\xE9 relative "
+	                        " Humidité relative "
 	                    )
 	                ),
 	                _react2.default.createElement(
 	                    "div",
 	                    { className: "last_update" },
-	                    "Derni\xE8re mise \xE0 jour le ",
+	                    "Dernière mise à jour le ",
 	                    (0, _moment2.default)(this.state.lastReport.date).format("DD-MM-YYYY à HH:mm"),
 	                    "."
 	                )
@@ -35375,7 +35376,7 @@
 	                _react2.default.createElement(
 	                    "h2",
 	                    null,
-	                    " Derniers relev\xE9s "
+	                    " Derniers relevés "
 	                ),
 	                _react2.default.createElement(
 	                    _reactBootstrap.Table,
@@ -35389,17 +35390,17 @@
 	                            _react2.default.createElement(
 	                                "th",
 	                                null,
-	                                "Date du relev\xE9"
+	                                "Date du relevé"
 	                            ),
 	                            _react2.default.createElement(
 	                                "th",
 	                                null,
-	                                "Temp\xE9rature"
+	                                "Température"
 	                            ),
 	                            _react2.default.createElement(
 	                                "th",
 	                                null,
-	                                "Humidit\xE9"
+	                                "Humidité"
 	                            )
 	                        )
 	                    ),

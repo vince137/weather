@@ -24,7 +24,7 @@ var DashboardComponent = React.createClass({
      * @return promise
      */
     getReports: function () {
-        return fetch('http://191.168.35.187/weather/web/app_dev.php/api/reports')
+        return fetch('http://localhost/weather/weather/web/app_dev.php/api/reports')
             .then((response) => response.json())
             .then((responseJson) => {
                 // Update the component data
@@ -68,8 +68,8 @@ var DashboardComponent = React.createClass({
         var lastReports = Object.keys(reports).map(function (key) {
             return <tr>
                     <td>{moment(reports[key].date).format("DD-MM-YYYY à HH:mm")}</td>
-                    <td>{reports[key].temperature}</td>
-                    <td>{reports[key].humidity}</td>
+                    <td>{reports[key].temperature}°C</td>
+                    <td>{reports[key].humidity}%</td>
                     </tr>;
         });
 
