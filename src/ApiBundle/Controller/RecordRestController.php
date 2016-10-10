@@ -18,7 +18,7 @@ class RecordRestController extends Controller
     {
         $repository = $this->getDoctrine()->getManager()->getRepository('AppBundle:Record');
 
-        // Get all reports
+        // Get all records
         $records = $repository->findBy(array(), array('date' => 'DESC'), 30);
 
         return $records;
