@@ -16,10 +16,15 @@ class RecordRestController extends Controller
     */
     public function getRecordsAction()
     {
+        $records = [];
         $repository = $this->getDoctrine()->getManager()->getRepository('AppBundle:Record');
 
-        // Get all records
-        $records = $repository->findBy(array(), array('date' => 'DESC'), 30);
+        $recordTypes = $this->container->getParameter('record_type');
+
+        // Get all records types
+        foreach($recordTypes as $recordType) {
+            $records[$recordType] = $repository->findBy(array('type' => $recordType), array('date' => 'DESC'), 30);
+        }
 
         return $records;
     }
