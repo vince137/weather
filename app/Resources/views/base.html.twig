@@ -6,18 +6,13 @@
         <link href="{{ asset('css/main.css') }}" rel="stylesheet" />
     </head>
     <body>
-                <div id="navbar"> </div>
-
-        <div id="app">
-            <div id="content">
-                {% block body %}{%endblock%}
-            </div>
-        </div>
+        <div id="navbar"> </div>
+        <div id="app"><div id="content"> {% block body %} {%endblock%} </div></div>
     </body>
 </html>
 
 {% block javascripts %}
-    {% if app.environment == 'dev' %}
+    {% if app.environment == 'dev' and app.request.uri matches '#api\/#' == 0 %}
         <script src="{{ asset('dist/bundle.js') }}"></script>
     {% endif %}
 {% endblock %}

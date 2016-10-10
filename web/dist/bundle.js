@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "b5045c886c3323aa583e"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "1ae3224a198a7265bc76"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -8353,6 +8353,10 @@
 
 	var _DashboardComponent2 = _interopRequireDefault(_DashboardComponent);
 
+	var _RecordComponent = __webpack_require__(678);
+
+	var _RecordComponent2 = _interopRequireDefault(_RecordComponent);
+
 	var _NavbarInstance = __webpack_require__(668);
 
 	var _NavbarInstance2 = _interopRequireDefault(_NavbarInstance);
@@ -8368,14 +8372,17 @@
 	    displayName: 'App',
 
 	    render: function render() {
-	        return _react2.default.createElement(
-	            _reactRouter.Router,
-	            { history: _reactRouter.hashHistory },
-	            _react2.default.createElement(_reactRouter.Route, { path: '/', component: _DashboardComponent2.default })
-	        );
+	        return null;
 	    }
 	});
-	_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('app'));
+
+	// Render the app
+	_reactDom2.default.render(_react2.default.createElement(
+	    _reactRouter.Router,
+	    { history: _reactRouter.hashHistory },
+	    _react2.default.createElement(_reactRouter.Route, { path: '/', component: _DashboardComponent2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'record', component: _RecordComponent2.default })
+	), document.getElementById('app'));
 
 	// Render the navbar
 	_reactDom2.default.render(_react2.default.createElement(_NavbarInstance2.default, null), document.getElementById("navbar"));
@@ -24161,7 +24168,8 @@
 	  if (x === y) {
 	    // Steps 1-5, 7-10
 	    // Steps 6.b-6.e: +0 != -0
-	    return x !== 0 || 1 / x === 1 / y;
+	    // Added the nonzero y check to make Flow happy, but it is redundant
+	    return x !== 0 || y !== 0 || 1 / x === 1 / y;
 	  } else {
 	    // Step 6.a: NaN == NaN
 	    return x !== x && y !== y;
@@ -35257,7 +35265,7 @@
 	    getReports: function getReports() {
 	        var _this = this;
 
-	        return fetch('http://localhost/weather/weather/web/app_dev.php/api/reports').then(function (response) {
+	        return fetch('http://wd.dev/web/app_dev.php/api/reports').then(function (response) {
 	            return response.json();
 	        }).then(function (responseJson) {
 	            // Update the component data
@@ -35311,7 +35319,7 @@
 	                    "td",
 	                    null,
 	                    reports[key].temperature,
-	                    "°C"
+	                    "\xB0C"
 	                ),
 	                _react2.default.createElement(
 	                    "td",
@@ -35336,18 +35344,18 @@
 	                _react2.default.createElement(
 	                    "h2",
 	                    null,
-	                    " Données en temps réel "
+	                    " Donn\xE9es en temps r\xE9el "
 	                ),
 	                _react2.default.createElement(
 	                    "div",
 	                    { className: "real_time_releve last_temperature" },
 	                    this.state.lastReport.temperature,
-	                    "°C ",
+	                    "\xB0C ",
 	                    _react2.default.createElement("br", null),
 	                    _react2.default.createElement(
 	                        "span",
 	                        { className: "real_time_name" },
-	                        " Température "
+	                        " Temp\xE9rature "
 	                    )
 	                ),
 	                _react2.default.createElement(
@@ -35359,13 +35367,13 @@
 	                    _react2.default.createElement(
 	                        "span",
 	                        { className: "real_time_name" },
-	                        " Humidité relative "
+	                        " Humidit\xE9 relative "
 	                    )
 	                ),
 	                _react2.default.createElement(
 	                    "div",
 	                    { className: "last_update" },
-	                    "Dernière mise à jour le ",
+	                    "Derni\xE8re mise \xE0 jour le ",
 	                    (0, _moment2.default)(this.state.lastReport.date).format("DD-MM-YYYY à HH:mm"),
 	                    "."
 	                )
@@ -35376,7 +35384,7 @@
 	                _react2.default.createElement(
 	                    "h2",
 	                    null,
-	                    " Derniers relevés "
+	                    " Derniers relev\xE9s "
 	                ),
 	                _react2.default.createElement(
 	                    _reactBootstrap.Table,
@@ -35390,17 +35398,17 @@
 	                            _react2.default.createElement(
 	                                "th",
 	                                null,
-	                                "Date du relevé"
+	                                "Date du relev\xE9"
 	                            ),
 	                            _react2.default.createElement(
 	                                "th",
 	                                null,
-	                                "Température"
+	                                "Temp\xE9rature"
 	                            ),
 	                            _react2.default.createElement(
 	                                "th",
 	                                null,
-	                                "Humidité"
+	                                "Humidit\xE9"
 	                            )
 	                        )
 	                    ),
@@ -68532,52 +68540,13 @@
 	                        null,
 	                        _react2.default.createElement(
 	                            _reactBootstrap.NavItem,
-	                            { eventKey: 1, href: "#" },
-	                            "Link"
+	                            { eventKey: 1, href: "#/" },
+	                            "Dashboard"
 	                        ),
 	                        _react2.default.createElement(
 	                            _reactBootstrap.NavItem,
-	                            { eventKey: 2, href: "#" },
-	                            "Link"
-	                        ),
-	                        _react2.default.createElement(
-	                            _reactBootstrap.NavDropdown,
-	                            { eventKey: 3, title: "Dropdown", id: "basic-nav-dropdown" },
-	                            _react2.default.createElement(
-	                                _reactBootstrap.MenuItem,
-	                                { eventKey: 3.1 },
-	                                "Action"
-	                            ),
-	                            _react2.default.createElement(
-	                                _reactBootstrap.MenuItem,
-	                                { eventKey: 3.2 },
-	                                "Another action"
-	                            ),
-	                            _react2.default.createElement(
-	                                _reactBootstrap.MenuItem,
-	                                { eventKey: 3.3 },
-	                                "Something else here"
-	                            ),
-	                            _react2.default.createElement(_reactBootstrap.MenuItem, { divider: true }),
-	                            _react2.default.createElement(
-	                                _reactBootstrap.MenuItem,
-	                                { eventKey: 3.3 },
-	                                "Separated link"
-	                            )
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        _reactBootstrap.Nav,
-	                        { pullRight: true },
-	                        _react2.default.createElement(
-	                            _reactBootstrap.NavItem,
-	                            { eventKey: 1, href: "#" },
-	                            "Link Right"
-	                        ),
-	                        _react2.default.createElement(
-	                            _reactBootstrap.NavItem,
-	                            { eventKey: 2, href: "#" },
-	                            "Link Right"
+	                            { eventKey: 2, href: "#/record" },
+	                            "Records"
 	                        )
 	                    )
 	                )
@@ -68967,6 +68936,38 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
+
+/***/ },
+/* 678 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(78);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(110);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var RecordComponent = _react2.default.createClass({
+	    displayName: 'RecordComponent',
+
+	    reports: {},
+
+	    render: function render() {
+	        return null;
+	    }
+
+	});
+	exports.default = RecordComponent;
 
 /***/ }
 /******/ ]);

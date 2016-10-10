@@ -14,9 +14,6 @@ class DefaultController extends Controller
     * @Route("/", name="app")
     */
     public function indexAction() {
-
-        //$dashboard = new Dashboard();
-        //$dashboard->getValues();
         return $this->render('default/index.html.twig');
     }
 }

@@ -24,7 +24,7 @@ var DashboardComponent = React.createClass({
      * @return promise
      */
     getReports: function () {
-        return fetch('http://localhost/weather/weather/web/app_dev.php/api/reports')
+        return fetch('http://wd.dev/web/app_dev.php/api/reports')
             .then((response) => response.json())
             .then((responseJson) => {
                 // Update the component data
