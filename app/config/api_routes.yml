@@ -1,3 +1,7 @@
 reports:
     resource: ApiBundle\Controller\ReportRestController
     type:     rest
+
+records:
+    resource: ApiBundle\Controller\RecordRestController
+    type:     rest
