@@ -21,30 +21,53 @@
     position:relative;
     width:45%;
 }
-.dashboard h2{
-    padding-top:0;
-    margin-top:0;
-    font-size:19px;
+h2{
+    padding-top:0!important;
+    margin-top:0!important;
+    font-size:19px!important;
 }
-.dashboard .real_time .real_time_releve {
+.real_time .real_time_releve {
     width:15%;
     border:1px silver solid;
-    margin:0 10% 0 0;
+    margin:0 5% 25px 0;
     padding:5px;
     font-weight:bold;
     font-size:24px;
     display:inline-block;
     text-align:center;
 }
-.dashboard .real_time .real_time_releve:hover {
+.real_time .real_time_releve.large{
+    width:20%;
+}
+.real_time .real_time_releve:hover {
     background-color:#CCC;
 }
 
-.dashboard .real_time .real_time_releve .real_time_name{
+.real_time .real_time_releve .real_time_name{
     font-size:11px;
     clear:both;
 }
-.dashboard .real_time .last_update{
+.real_time .real_time_releve .largeFont{
+    font-size:13px;
+    clear:both;
+}
+.real_time .real_time_releve hr{
+    width:50%;
+    margin: 5px auto 0;
+    color:#000;
+    border-color:#000;
+}
+.real_time .real_time_releve .rubrique_text{
+    font-size:12px;
+}
+.real_time .real_time_releve .rubrique_text.title_bloc{
+    color:#2f8bb3;
+    font-size:14px;
+    font-weight:bold;
+}
+
+
+.real_time .last_update{
     position:absolute;
     bottom:0;
     right:0;
