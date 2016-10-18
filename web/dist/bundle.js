@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "d34e2976567ded5d30e5"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "95aa4371a3a4021b3d2a"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -35299,12 +35299,54 @@
 	        this.getReports();
 	    },
 
+	    getTendance: function getTendance() {
+
+	        if (typeof this.state.lastReports[0] !== "undefined") {
+	            var tempRef = this.state.lastReports[0].temperature;
+	            console.log(tempRef);
+	        }
+
+	        if (typeof this.state.lastReports[1] !== "undefined") {
+	            var tempCompare = this.state.lastReports[1].temperature;
+	            console.log(tempCompare);
+	        }
+
+	        if (typeof tempRef === "undefined" || typeof tempCompare === "undefined") {
+	            return null;
+	        }
+
+	        var diffTemp = tempCompare - tempRef;
+	        if (diffTemp < -0.5) {
+	            return 'up';
+	        } else if (diffTemp > 0.5) {
+	            return 'down';
+	        } else {
+	            return 'stable';
+	        }
+	    },
+
 	    /**
 	     * Render to the view
 	     */
 	    render: function render() {
 
 	        var reports = this.state.lastReports;
+	        var tendance = this.getTendance();
+
+	        var htmlTendance = "";
+	        if (tendance !== null) {
+	            switch (tendance) {
+	                case 'up':
+	                    var htmlTendance = "<div className='tendanceUp'></div>";
+	                    break;
+	                case 'down':
+	                    var htmlTendance = "<div className='tendanceDown'></div>";
+	                    break;
+	                case 'stable':
+	                    var htmlTendance = "<div className='tendanceStable'></div>";
+	                    break;
+	            }
+	        }
 
 	        var lastReports = Object.keys(reports).map(function (key) {
 	            return _react2.default.createElement(
@@ -35349,6 +35391,7 @@
 	                _react2.default.createElement(
 	                    "div",
 	                    { className: "real_time_releve last_temperature" },
+	                    htmlTendance,
 	                    this.state.lastReport.temperature,
 	                    "\xB0C ",
 	                    _react2.default.createElement("br", null),

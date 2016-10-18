@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Panel, Table} from "react-bootstrap";
+import { Panel, Table } from "react-bootstrap";
 import moment from "moment";
 
 
@@ -58,19 +58,64 @@ var DashboardComponent = React.createClass({
         this.getReports();
     },
 
+
+    getTendance: function () {
+
+        if (typeof this.state.lastReports[0] !== "undefined") {
+            var tempRef = this.state.lastReports[0].temperature;
+            console.log(tempRef);
+        }
+
+        if (typeof this.state.lastReports[1] !== "undefined") {
+            var tempCompare = this.state.lastReports[1].temperature;  
+            console.log(tempCompare);
+        }
+
+        if (typeof tempRef === "undefined" || typeof tempCompare === "undefined") {
+            return null;
+        }
+
+        let diffTemp = tempCompare-tempRef;
+        if (diffTemp < -0.5) {
+            return 'up';
+        } else if (diffTemp > 0.5) {
+            return 'down';
+        } else {
+            return 'stable';
+        }
+       
+
+    },
+
     /**
      * Render to the view
      */
     render: function () {
 
         let reports = this.state.lastReports;
+        let tendance = this.getTendance();
+
+        var htmlTendance = "";
+        if (tendance !== null) {
+            switch(tendance) {
+                case 'up':
+                    var htmlTendance = "<div className='tendanceUp'></div>";
+                    break;
+                case 'down':
+                    var htmlTendance = "<div className='tendanceDown'></div>";
+                    break;
+                case 'stable':
+                    var htmlTendance = "<div className='tendanceStable'></div>";
+                    break;
+            }
+        }
 
         var lastReports = Object.keys(reports).map(function (key) {
             return <tr>
-                    <td>{moment(reports[key].date).format("DD-MM-YYYY à HH:mm")}</td>
-                    <td>{reports[key].temperature}°C</td>
-                    <td>{reports[key].humidity}%</td>
-                    </tr>;
+                <td>{moment(reports[key].date).format("DD-MM-YYYY à HH:mm")}</td>
+                <td>{reports[key].temperature}°C</td>
+                <td>{reports[key].humidity}%</td>
+            </tr>;
         });
 
         return (
@@ -79,15 +124,16 @@ var DashboardComponent = React.createClass({
                 <Panel className="real_time">
                     <h2> Données en temps réel </h2>
                     <div className="real_time_releve last_temperature">
-                        {this.state.lastReport.temperature}°C <br/>
+                        {htmlTendance}
+                        {this.state.lastReport.temperature}°C <br />
                         <span className='real_time_name'> Température </span>
                     </div>
                     <div className="real_time_releve last_humidity">
-                        {this.state.lastReport.humidity}% <br/>
+                        {this.state.lastReport.humidity}% <br />
                         <span className='real_time_name'> Humidité relative </span>
                     </div>
                     <div className="last_update">
-                        Dernière mise à jour le {moment(this.state.lastReport.date).format("DD-MM-YYYY à HH:mm") }.
+                        Dernière mise à jour le {moment(this.state.lastReport.date).format("DD-MM-YYYY à HH:mm")}.
                     </div>
                 </Panel>
                 <Panel className="list">
