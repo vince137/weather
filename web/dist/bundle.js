@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "d9b11f94d7c768a17ed6"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "d34e2976567ded5d30e5"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -68673,7 +68673,7 @@
 	                    _react2.default.createElement(
 	                        'span',
 	                        { className: 'rubrique_text title_bloc' },
-	                        'Records de temp\xE9rature minimales'
+	                        'Record de temp\xE9rature minimale'
 	                    ),
 	                    _react2.default.createElement('hr', null),
 	                    _react2.default.createElement(
@@ -68716,7 +68716,7 @@
 	                    _react2.default.createElement(
 	                        'span',
 	                        { className: 'rubrique_text title_bloc' },
-	                        'Records de temp\xE9rature maximales'
+	                        'Record de temp\xE9rature maximale'
 	                    ),
 	                    _react2.default.createElement('hr', null),
 	                    _react2.default.createElement(
@@ -68759,7 +68759,7 @@
 	                    _react2.default.createElement(
 	                        'span',
 	                        { className: 'rubrique_text title_bloc' },
-	                        'Records d\'humidit\xE9 minimale'
+	                        'Record d\'humidit\xE9 minimale'
 	                    ),
 	                    _react2.default.createElement('hr', null),
 	                    _react2.default.createElement(
@@ -68802,7 +68802,7 @@
 	                    _react2.default.createElement(
 	                        'span',
 	                        { className: 'rubrique_text title_bloc' },
-	                        'Records d\'humidit\xE9 maximale'
+	                        'Record d\'humidit\xE9 maximale'
 	                    ),
 	                    _react2.default.createElement('hr', null),
 	                    _react2.default.createElement(

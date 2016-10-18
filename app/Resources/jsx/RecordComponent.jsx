@@ -154,7 +154,7 @@ var RecordComponent = React.createClass({
                 <h2> Records depuis toujours </h2>
                 <div className="real_time_releve large record_temperature">
                     <span className='rubrique_text title_bloc'>
-                        Records de température minimales
+                        Record de température minimale
                     </span>
                     <hr />
                     <span className='rubrique_text'> Dernier record : </span> <br />
@@ -172,7 +172,7 @@ var RecordComponent = React.createClass({
 
                 <div className="real_time_releve large record_temperature_max">
                     <span className='rubrique_text title_bloc'>
-                        Records de température maximales
+                        Record de température maximale
                     </span>
                     <hr />
                     <span className='rubrique_text'> Dernier record : </span> <br />
@@ -190,7 +190,7 @@ var RecordComponent = React.createClass({
 
                 <div className="real_time_releve large record_temperature_max">
                     <span className='rubrique_text title_bloc'>
-                        Records d'humidité minimale
+                        Record d'humidité minimale
                     </span>
                     <hr />
                     <span className='rubrique_text'> Dernier record : </span> <br />
@@ -208,7 +208,7 @@ var RecordComponent = React.createClass({
 
                 <div className="real_time_releve large record_temperature_max">
                     <span className='rubrique_text title_bloc'>
-                        Records d'humidité maximale
+                        Record d'humidité maximale
                     </span>
                     <hr />
                     <span className='rubrique_text'> Dernier record : </span> <br />
